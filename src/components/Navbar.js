@@ -9,11 +9,11 @@ export const Navbar = (props) => {
   let setIsLoggedIn=props.setIsLoggedIn;
 
   return (
-    <div className='flex justify-evenly backdrop-brightness-90'>
-       
-          <Link to="/">
-              <img src={logo} height={32} width={160} loading="lazy" />
-            </Link>
+    <div  className='flex flex-col md:flex-row gap-8 justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto'>
+
+    <Link to="/"> 
+        <img src={logo} alt="Logo" width={160} height={32} loading="lazy"/>
+    </Link>
 
             <nav>
                 <ul className='text-richblack-100 flex gap-x-6 al'>
@@ -24,19 +24,24 @@ export const Navbar = (props) => {
 
                 </ul>
             </nav>
-             <div className=' flex ml-4 gap-x-6 al'>
+             <div className=' flex items-center gap-x-4'>
 
               {!isLoggedIn &&
                 <Link to="/Login"> 
-                <button> Login </button>  </Link>
+                 <button className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'>
+                        Log in
+                    </button>
+                </Link>
               }
               {!isLoggedIn &&
                 <Link to="/Signup"> 
-                <button onClick={()=>{
-                  setIsLoggedIn(false);
-                  // toast.success("Logged out")
 
-                }}> Signup </button>  </Link>
+               <button  className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'>
+                        Sign up
+                    </button>
+                </Link>
               }
               {isLoggedIn &&
                 <Link to="/Logout"> 
@@ -44,12 +49,16 @@ export const Navbar = (props) => {
                   setIsLoggedIn(false);
                   toast.success("Logged out")
 
-                }}> 
+                }} className='bg-richblack-800 text-richblack-100 py-[8px] 
+                px-[12px] rounded-[8px] border border-richblack-700'> 
                  Log Out </button>  </Link>
               }
               {isLoggedIn &&
                 <Link to="/Dashboard"> 
-                <button> Dashboard </button>  </Link>
+                <button className='bg-richblack-800 text-richblack-100 py-[8px] 
+                    px-[12px] rounded-[8px] border border-richblack-700'>
+                        Dashboard</button> 
+                         </Link>
               }
              </div>
        
